@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Interactive Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card" id="card">
+        <div class="image-container">
+            <img src="image.jpg" alt="C:\Users\ABOVE\Documents\image.jpg">
+        </div>
+        <span class="badge">Learning</span>
+        <p class="date">Published 21 Dec 2023</p>
+        <h2>HTML,CSS & JS Foundations</h2>
+                <p class="description">
+                        These languages form the core of web development, defining structure, styling, and interaction.
+                      </p>
+                     <div class="author">
+                           <img src="Felix.jpg" alt="Author Image" class="author-img">
+                            <span>Felix Emmanuella</span>
+                       </div>
+                        <button id="changeColorBtn">Change Background</button>
+        </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+           const card = document.getElementById("card");
+        const changeColorBtn = document.getElementById("changeColorBtn");
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        changeColorBtn.addEventListener("click", function () {
+            let newColor = getRandomColor();
+            console.log("New color:", newColor); // Debugging
+            card.style.backgroundColor = newColor;
+        });
+    });
+</script>
+</body>
+</html>
